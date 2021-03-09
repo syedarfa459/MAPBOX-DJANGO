@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load mapbox_location_field_tags %}
+{% location_field_includes %}
+{% include_jquery %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAPBOX Demo--</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+
+</head>
+<body>
+
+<!--<div id='map' style='width: 1000px; height: 600px;'></div>-->
+<!--<script>-->
+
+<!--  mapboxgl.accessToken = '{{mapbox_access_token}}';-->
+
+<!--  var map = new mapboxgl.Map({-->
+<!--    container: 'map',-->
+<!--    style: 'mapbox://styles/mapbox/satellite-streets-v10',-->
+<!--     center: [-77.03, 38.91],-->
+<!--     zoom: 9,-->
+<!--     bearing: 180-->
+<!--  });-->
+
+<!--&lt;!&ndash;   Add geolocate control to the map.&ndash;&gt;-->
+<!--    map.addControl(-->
+<!--    new mapboxgl.GeolocateControl({-->
+<!--    positionOptions: {-->
+<!--    enableHighAccuracy: true-->
+<!--    },-->
+<!--    trackUserLocation: true-->
+<!--    })-->
+<!--    );-->
+<!--</script>-->
+<!--<br>-->
+    {{ form.media }}
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+       <input type="submit" value="submit">
+    </form>
+
+
+
+
+</body>
+</html>
