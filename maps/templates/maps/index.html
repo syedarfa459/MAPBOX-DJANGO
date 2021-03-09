@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-{% load mapbox_location_field_tags %}
-{% location_field_includes %}
-{% include_jquery %}
+
+{% load static %}
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MAPBOX Demo--</title>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <title>MAP Demo--</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+     {{form.media}}
 
 </head>
 <body>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{form.as_p}}<br>
+        <input type="submit" value="Save">
+    </form>
 
 <!--<div id='map' style='width: 1000px; height: 600px;'></div>-->
 <!--<script>-->
@@ -38,15 +44,12 @@
 <!--    );-->
 <!--</script>-->
 <!--<br>-->
-    {{ form.media }}
-    <form method="post">
-        {% csrf_token %}
-        {{form}}
-       <input type="submit" value="submit">
-    </form>
-
-
-
+<!--    {{ form.media }}-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{form}}-->
+<!--       <input type="submit" value="submit">-->
+<!--    </form>-->
 
 </body>
 </html>

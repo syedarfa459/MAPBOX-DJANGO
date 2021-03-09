@@ -1,10 +1,8 @@
 from django import forms
-from .models import UserLocationModel
+from .models import Place
 
 
-class UserLocationForm(forms.ModelForm):
+class PlaceForm(forms.ModelForm):
     class Meta:
-        model = UserLocationModel
-        fields = "__all__"
-
-
+        model = Place
+        fields = '__all__'

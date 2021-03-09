@@ -1,9 +1,8 @@
 from django.db import models
-from mapbox_location_field.models import LocationField, AddressAutoHiddenField
-# from mapbox_location_field.spatial.models import SpatialLocationField
+from location_field.models.plain import PlainLocationField
 
 
-# Create your models here.
-class UserLocationModel(models.Model):
-    location = LocationField(map_attrs={"center": [0, 0], "marker_color": "blue"})
-    # address = AddressAutoHiddenField()
+class Place(models.Model):
+    city = models.CharField(max_length=255)
+    location = PlainLocationField(based_fields=['city'], zoom=7)
+
